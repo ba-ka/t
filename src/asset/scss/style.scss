@@ -1,0 +1,152 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+		"Droid Sans", "Helvetica Neue", sans-serif;
+	background-color: #222222;
+}
+
+.app {
+	color: #ffffff;
+
+	header {
+		background-color: #4b4b4b;
+		width: 100%;
+		left: 0;
+		top: 0;
+
+		div.container {
+			display: flex;
+			align-items: center;
+			margin: 0 40px;
+			
+			div.brand {
+				display: flex;
+				color: #ffffff;
+				align-items: center;
+				margin-right: 30px;
+	
+				img.logo {
+					height: 40px;
+					background: #666666;
+					margin-right: 10px;
+				}
+	
+				h1.title {
+					font-size: 14pt;
+				}
+			}
+	
+			ul.menu {
+				padding: 0;
+				list-style: none;
+				margin: 0;
+				
+				li {
+					display: inline-block;
+					margin-right: 15px;
+		
+					a {
+						display: block;
+						color: #ffffff;
+						background: #666666;
+						padding: 5px 10px;
+						text-decoration: none;
+						font-size: 12pt;
+						font-weight: 600;
+					}
+		
+					&:nth-last-child(1) {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	main {
+		div.container {
+			margin: 0 40px;
+
+			div.kanban {
+				display: flex;
+				flex-wrap: wrap;
+				div.box a {
+					background: #4b4b4b;
+					display: block;
+					padding: 8px;
+					margin-right: 20px;
+					margin-bottom: 20px;
+					width: 300px;
+					color: #ffffff;
+					text-decoration: none;
+					min-height: 110px;
+					max-height: 110px;
+					
+					.title {
+						margin-bottom: 10px;
+						font-size: 14pt;
+						font-weight: 600;
+					}
+
+					.description {
+						overflow: hidden;
+					}
+				}
+			}
+
+			div.kanban-detail {
+
+				div.board-box {
+					margin-right: 20px;
+					margin-bottom: 20px;
+					border: 1px solid #222222;
+					background-color: #4b4b4b;
+					width: 250px;
+					vertical-align: top;
+					display: inline-block;
+					
+					> .title {
+						padding: 8px 8px;
+						margin: 0;
+					}
+
+					.task-box {
+						padding: 8px;
+						transition: background-color 0.2s ease;
+						background-color: #4b4b4b;
+						flex-grow: 1;
+						min-height: 20px;
+
+						.task-detail {
+							padding: 8px;
+							margin-bottom: 8px;
+							color: #ffffff;
+							background-color: #222222;
+							border: 1px solid #222222;
+
+							&:active {
+								border: 1px solid #4b4b4b;
+							}
+						}
+					}
+				}
+
+			}
+		}
+	}
+}
+/*
+
+.kanban-tasklist {
+	
+}
+
+.kanban-task-container {
+	
+}
+
+.kanban-task-container:active {
+	
+}
+*/
