@@ -13,3 +13,7 @@ export function logout() {
 export function getUserId() {
     return localStorage.getItem('user_id');
 }
+
+export function getAuth() {
+    return localStorage.getItem('auth');
+}

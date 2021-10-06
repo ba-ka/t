@@ -4,6 +4,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { Prop as PropInterface, State as StateInterface, InnertList as InnerListInterface } from '../../../interface/page/kanban/detail';
 import Board from './board';
 import { withRouter } from "react-router-dom";
+import { getAuth } from '../../../lib/auth';
 
 class InnerList extends React.PureComponent<InnerListInterface> {
     render() {
@@ -29,7 +30,7 @@ class KanbanDetail extends React.Component<PropInterface, StateInterface> {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:5000/api/kanban/${this.state.kanbanId}`)
+        fetch(`http://localhost:5000/api/kanban/${this.state.kanbanId}?auth=${getAuth()}`)
           .then(async (result) => {
             const data: any = await result.json();
             if (data) {
