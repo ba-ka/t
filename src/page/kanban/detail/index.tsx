@@ -38,19 +38,16 @@ class KanbanDetail extends React.Component<PropInterface, StateInterface> {
                 const board = [];
                 const task = [];
                 for (let i = 0; i < data.board.length; i++) {
-                    boardOrder.push(data.board[i]._id);
+                    boardOrder.push(data.board[i].id);
                 }
                 for (let i = 0; i < data.board.length; i++) {
                     const taskData = [];
                     for (let i2 = 0; i2 < data.board[i].task.length; i2++) {
-                        taskData.push(data.board[i].task[i2]._id);
-                        task[data.board[i].task[i2]._id] = {
-                            id: data.board[i].task[i2]._id,
-                            content: data.board[i].task[i2].description
-                        }
+                        taskData.push(data.board[i].task[i2].id);
+                        task[data.board[i].task[i2].id] = data.board[i].task[i2];
                     }
-                    board[data.board[i]._id] = { 
-                        id: data.board[i]._id,
+                    board[data.board[i].id] = { 
+                        id: data.board[i].id,
                         title: data.board[i].title,
                         task: taskData
                     };
