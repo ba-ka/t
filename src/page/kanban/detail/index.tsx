@@ -201,33 +201,52 @@ class KanbanDetail extends React.Component<PropInterface, StateInterface> {
     }
 
     addTask = (taskName: string, boardId: string) => {
-        const home = this.state.board[boardId];
-
-        const newtask = Array.from(home.task);
-        const generateId = v4();
-        newtask.push(generateId);
-
-        const newHome = {
-            ...home,
-            task: newtask,
-        };
-
-        const newState = {
-            ...this.state,
-            board: {
-                ...this.state.board,
-                [newHome.id]: newHome,
+        const data = {
+            auth: getAuth(),
+            content: taskName
+        }
+        fetch(`http://localhost:5000/api/kanban/${this.state.kanbanId}/${boardId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
             },
-            task: {
-                ...this.state.task,
-                [generateId]: {
-                    id: generateId,
-                    content: taskName
+            body: JSON.stringify(data)
+        }).then(
+            async (result) => {
+                const data: any = await result.json();
+                if (result.status === 200) {
+                    const home = this.state.board[boardId];
+
+                    const newtask = Array.from(home.task);
+                    const generateId = data.task_id;
+                    newtask.push(generateId);
+
+                    const newHome = {
+                        ...home,
+                        task: newtask,
+                    };
+
+                    const newState = {
+                        ...this.state,
+                        board: {
+                            ...this.state.board,
+                            [newHome.id]: newHome,
+                        },
+                        task: {
+                            ...this.state.task,
+                            [generateId]: {
+                                id: generateId,
+                                content: taskName
+                            }
+                        }
+                    };
+                    
+                    this.setState(newState);
+                } else {
+                    alert(data.error.message);
                 }
             }
-        };
-        
-        this.setState(newState);
+        )
     }
 
     render() {
