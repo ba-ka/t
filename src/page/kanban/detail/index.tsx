@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 } from 'uuid';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { Prop as PropInterface, State as StateInterface, InnertList as InnerListInterface } from '../../../interface/page/kanban/detail';
 import Board from './board';
