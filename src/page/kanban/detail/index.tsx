@@ -178,25 +178,45 @@ class KanbanDetail extends React.Component<PropInterface, StateInterface> {
 
     handleSubmit = (event: any) => {
         if (!this.state.inputGroup) { alert('name cannot be null'); event.preventDefault(); return; }
-        const newBoardOrder = Array.from(this.state.boardOrder);
-        const newName = v4();
-        newBoardOrder.push(newName);
-        const inputGroup = this.state.inputGroup;
-        const newState = {
-            ...this.state,
-            board: {
-                ...this.state.board,
-                [newName]: {
-                    id: newName,
-                    title: inputGroup,
-                    task: []
-                },
+        const data = {
+            auth: getAuth(),
+            title: this.state.inputGroup
+        }
+        fetch(`http://localhost:5000/api/kanban/${this.state.kanbanId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
             },
-            boardOrder: newBoardOrder,
-            inputGroup: ''
-        };
+            body: JSON.stringify(data)
+        }).then(
+            async (result) => {
+                const data: any = await result.json();
+                if (result.status === 200) {
+                    const newBoardOrder = Array.from(this.state.boardOrder);
+                    const newName = data.board_id;
+                    newBoardOrder.push(newName);
+                    const inputGroup = this.state.inputGroup;
+                    const newState = {
+                        ...this.state,
+                        board: {
+                            ...this.state.board,
+                            [newName]: {
+                                id: newName,
+                                title: inputGroup,
+                                task: []
+                            },
+                        },
+                        boardOrder: newBoardOrder,
+                        inputGroup: ''
+                    };
 
-        this.setState(newState)
+                    this.setState(newState)
+                } else {
+                    alert(data.error.message);
+                }
+            }
+        )
+
         event.preventDefault();
     }
 
