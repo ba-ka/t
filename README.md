@@ -1,6 +1,6 @@
-# About tanoshii react
+# 楽しい / tanoshī / tanoshii
 
-This project is for [tanoshii](https://github.com/datoyacx/tanoshii)
+this project is for [ba-ka core](https://github.com/ba-ka/c)
 
 # Getting Started with Create React App
 
