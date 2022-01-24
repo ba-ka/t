@@ -7,7 +7,9 @@ import { getUserId, getAuth } from '../../lib/auth';
 class KamiCreate extends React.Component<PropInterface, StateInterface> {
     constructor(props: PropInterface) {
         super(props);
-        this.state = {};
+        this.state = {
+            status: 'public'
+        };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +24,33 @@ class KamiCreate extends React.Component<PropInterface, StateInterface> {
     }
 
     handleSubmit(event: { preventDefault: () => void; }) {
-        alert('A name was submitted: ' + this.state.title);
+        const authcode = getAuth();
+        
+        if (!this.state.content || !this.state.title || !this.state.excerpt || !this.state.status) { alert('title, status, excerpt or content cannot be null'); event.preventDefault(); return; }
+        const data = {
+            title: this.state.title,
+            content: this.state.content,
+            excerpt: this.state.excerpt,
+            status: this.state.status,
+            auth: authcode
+        }
+        fetch("https://c-datoyacx.vercel.app/api/v1/kami", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }).then(
+            async (result) => {
+                const data: any = await result.json();
+                console.log(data);
+                if (result.status === 200) {
+                    alert('kami created');
+                } else {
+                    alert(data.error.message);
+                }
+            }
+        )
         event.preventDefault();
     }
 
@@ -46,7 +74,7 @@ class KamiCreate extends React.Component<PropInterface, StateInterface> {
                             </select>
                         </label>
                         <label>
-                            content:
+                            excerpt:
                             <textarea className="excerpt" name="excerpt" value={this.state.excerpt} onChange={this.handleChange} />
                         </label>
                         <label>
