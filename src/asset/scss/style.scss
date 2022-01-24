@@ -6,6 +6,10 @@ body {
 	background-color: #222222;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 .app {
 	color: #ffffff;
 
@@ -133,6 +137,92 @@ body {
 				}
 
 			}
+		}
+	}
+
+	a.button-main {
+		display: inline-block;
+		color: #ffffff;
+		background: #666666;
+		padding: 5px 20px;
+		text-decoration: none;
+		font-size: 12pt;
+		font-weight: 600;
+	}
+
+	.kami-create-section {
+		display: flex;
+		columns: 2;
+		width: 100%;
+
+		div.editor,
+		div.preview {
+			width: 100%;
+			padding: 15px;
+		}
+
+		div.editor {
+			padding-left: 0;
+		}
+
+		div.preview {
+			padding-right: 0;
+		}
+
+
+		div.editor label {
+			width: 100%;
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		div.editor input,
+		div.editor textarea,
+		div.editor select {
+			width: 100%;
+			display: block;
+			background: #222222;
+			color: #ffffff;
+			padding: 10px 6px;
+			max-width: 100%;
+			resize: vertical;
+			border: none;
+			border: 1px solid #666666;
+		}
+		
+		div.editor input[type=submit] {
+			background: #ffffff;
+			color: #222222;
+		}
+
+		div.editor textarea.excerpt {
+			min-height: 10vh;
+			max-height: 20vh;
+		}
+
+		div.editor textarea.content {
+			min-height: 40vh;
+		}
+	}
+
+	.kami-list-section {
+		div.kami-list {
+
+			a {
+				background: #666666;
+				color: #ffffff;
+				text-decoration: none;
+				padding: 20px 25px;
+				display: block;
+				width: 100%;
+				margin-top: 15px;
+
+				h4,
+				p {
+					margin: 0;
+				}
+			}
+
 		}
 	}
 }

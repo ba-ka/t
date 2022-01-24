@@ -6,7 +6,7 @@ import reportWebVitals from './lib/react/reportWebVitals';
 import { isAuth, logout } from './lib/auth';
 import { Header, HeaderLoggedIn } from './component/header';
 import { PrivateRoute, UnprivateRoute } from './lib/route';
-import { Home, Login, Register, Kanban, KanbanDetail, NotFound } from './page';
+import { Home, Login, Register, Kami, KamiCreate, KamiView, KamiEdit, Kanban, KanbanDetail, NotFound } from './page';
 import { Prop as PropInterface, State as StateInterface } from './interface/app';
 
 import './asset/scss/style.scss';
@@ -60,6 +60,18 @@ class App extends React.Component<PropInterface, StateInterface> {
 							<Switch>
 								<Route exact path="/">
 									<Home/>
+								</Route>
+								<PrivateRoute path="/kami/create">
+									<KamiCreate/>
+								</PrivateRoute>
+								<Route path="/kami/:kamiId/edit">
+									<KamiEdit/>
+								</Route>
+								<Route path="/kami/:kamiId">
+									<KamiView/>
+								</Route>
+								<Route path="/kami">
+									<Kami/>
 								</Route>
 								<PrivateRoute path="/kanban/:kanbanId">
 									<KanbanDetail/>

@@ -36,7 +36,7 @@ class Login extends React.Component<PropInterface, StateInterface> {
             username: this.state.username,
             password: this.state.password
         }
-        fetch("http://localhost:5000/api/auth/login", {
+        fetch("https://c-datoyacx.vercel.app/api/v1/auth/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

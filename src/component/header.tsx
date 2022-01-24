@@ -8,6 +8,9 @@ export function Header() {
                 <Link to="/">home</Link>
             </li>
             <li>
+                <Link to="/kami">kami</Link>
+            </li>
+            <li>
                 <Link to="/login">login</Link>
             </li>
             <li>
@@ -24,7 +27,7 @@ export function HeaderLoggedIn(prop: Prop) {
                 <Link to="/">home</Link>
             </li>
             <li>
-                <Link to="/kanban">kanban</Link>
+                <Link to="/kami">kami</Link>
             </li>
             <li>
                 <Link to="#" onClick={prop.logoutButton}>logout</Link>

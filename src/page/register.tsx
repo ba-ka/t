@@ -36,7 +36,7 @@ class Register extends React.Component<PropInterface, StateInterface> {
             username: this.state.username,
             password: this.state.password
         }
-        fetch("http://localhost:5000/api/auth/register", {
+        fetch("https://c-datoyacx.vercel.app/api/v1/auth/register", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
