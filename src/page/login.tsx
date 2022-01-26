@@ -47,7 +47,7 @@ class Login extends React.Component<PropInterface, StateInterface> {
                 const data: any = await result.json();
                 if (result.status === 200) {
                     localStorage.setItem('auth', data.auth);
-                    localStorage.setItem('user_id', data.user_id);
+                    localStorage.setItem('user_id', data.id);
                     this.props.checkAuth();
                     alert('login success');
                 } else {
