@@ -7,5 +7,6 @@ import Kami from './kami';
 import KamiCreate from './kami/create';
 import KamiView from './kami/view';
 import KamiEdit from './kami/edit';
+import KamiManage from './kami/manage';
 
-export { Home, Login, Register, Kami, KamiCreate, KamiView, KamiEdit, Kanban, KanbanDetail, NotFound }
+export { Home, Login, Register, Kami, KamiCreate, KamiView, KamiEdit, KamiManage, Kanban, KanbanDetail, NotFound }
