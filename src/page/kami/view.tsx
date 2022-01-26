@@ -34,9 +34,6 @@ class KamiView extends React.Component<PropInterface, StateInterface> {
 
     render() {
         const { loading, error } = this.state;
-        if (!loading) {
-            console.log(this.state.author, getUserId());
-        }
         return (
             <div className="kami-list-section">
                 {loading && <div>Loading...</div>}
