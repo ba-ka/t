@@ -25,7 +25,7 @@ class KamiView extends React.Component<PropInterface, StateInterface> {
                 excerpt: res.excerpt,
                 content: res.content,
                 status: res.status,
-                author: res.author,
+                author: res.author.id,
                 loading: false,
                 error: false
             });
