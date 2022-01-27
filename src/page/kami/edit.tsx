@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Prop as PropInterface, State as StateInterface } from "../../interface/page/kami/view";
 import ReactMarkdown from "react-markdown";
-import { getUserId, getAuth } from '../../lib/auth';
+import { getAuth } from '../../lib/auth';
 
 class KamiEdit extends React.Component<PropInterface, StateInterface> {
     constructor(props: PropInterface) {
