@@ -78,6 +78,8 @@ class KamiEdit extends React.Component<PropInterface, StateInterface> {
         const { loading, error } = this.state;
         return (
             <div className="kami-create-section">
+                {loading && <div>Loading...</div>}
+                {!loading && !error &&
                 <div className="editor">
                     <h3>kami create :)</h3>
                     <form onSubmit={this.handleSubmit}>
@@ -105,12 +107,15 @@ class KamiEdit extends React.Component<PropInterface, StateInterface> {
                         <input type="submit" value="edit" />
                     </form>
                 </div>
+                }
+                {!loading && !error &&
                 <div className="preview">
                     <h3>{this.state.title || 'no title'}</h3>
                     <ReactMarkdown>
                         {this.state.content || 'no content'}
                     </ReactMarkdown>
                 </div>
+                }
             </div>
         )
     }
