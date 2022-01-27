@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Prop as PropInterface, State as StateInterface } from "../../interface/page/kami";
+import { base_api } from '../../config.json';
 
 class Kami extends React.Component<PropInterface, StateInterface> {
     constructor(props: PropInterface) {
@@ -12,7 +13,7 @@ class Kami extends React.Component<PropInterface, StateInterface> {
     }
 
     componentDidMount () {
-        fetch('https://c-datoyacx.vercel.app/api/v1/kami')
+        fetch(`${base_api}/kami`)
           .then((res) => res.json())
           .then((res) => {
             this.setState({

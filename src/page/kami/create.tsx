@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Prop as PropInterface, State as StateInterface } from "../../interface/page/kami/create";
 import ReactMarkdown from "react-markdown";
 import { getAuth } from '../../lib/auth';
+import { base_api } from '../../config.json';
 
 class KamiCreate extends React.Component<PropInterface, StateInterface> {
     constructor(props: PropInterface) {
@@ -34,7 +35,7 @@ class KamiCreate extends React.Component<PropInterface, StateInterface> {
             status: this.state.status,
             auth: authcode
         }
-        fetch("https://c-datoyacx.vercel.app/api/v1/kami", {
+        fetch(`${base_api}/kami`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

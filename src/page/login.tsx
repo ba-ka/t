@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Prop as PropInterface, State as StateInterface } from "../interface/page/login";
+import { base_api } from '../config.json';
+
 
 class Login extends React.Component<PropInterface, StateInterface> {
     constructor(props: PropInterface) {
@@ -36,7 +38,8 @@ class Login extends React.Component<PropInterface, StateInterface> {
             username: this.state.username,
             password: this.state.password
         }
-        fetch("https://c-datoyacx.vercel.app/api/v1/auth/login", {
+        
+        fetch(`${base_api}/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Prop as PropInterface, State as StateInterface } from "../../interface/page/kami";
 import { getAuth, getUserId } from "../../lib/auth";
+import { base_api } from '../../config.json';
 
 class KamiManage extends React.Component<PropInterface, StateInterface> {
     constructor(props: PropInterface) {
@@ -15,7 +16,7 @@ class KamiManage extends React.Component<PropInterface, StateInterface> {
     componentDidMount () {
         const authcode = getAuth();
         const userid = getUserId();
-        fetch(`https://c-datoyacx.vercel.app/api/v1/kami?userid=${userid}&auth=${authcode}`)
+        fetch(`${base_api}/kami?userid=${userid}&auth=${authcode}`)
           .then((res) => res.json())
           .then((res) => {
             this.setState({
