@@ -94,6 +94,11 @@ class App extends React.Component<PropInterface, StateInterface> {
 							</Switch>
 						</div>
 					</main>
+					<footer>
+						<div className="container">
+							&copy; 2022 tanoshii | powered by ba-ka
+						</div>
+					</footer>
 				</div>
 			</Router>
 		)
