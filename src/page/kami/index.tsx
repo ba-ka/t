@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Prop as PropInterface, State as StateInterface } from "../../interface/page/kami";
 import { base_api } from '../../config.json';
+import { isAuth } from '../../lib/auth';
 
 class Kami extends React.Component<PropInterface, StateInterface> {
     constructor(props: PropInterface) {
@@ -30,8 +31,12 @@ class Kami extends React.Component<PropInterface, StateInterface> {
         return (
             <div className="kami-list-section">
                 <h3>kami</h3>
-                <Link className="button-main" to="/kami/create">create</Link>
-                <Link className="button-main" to="/kami/manage">manage</Link>
+                {isAuth() &&
+                <ul className="mini-menu-section">
+                    <Link className="button-main" to="/kami/create">create</Link>
+                    <Link className="button-main" to="/kami/manage">manage</Link>
+                </ul>
+                }
                 {loading && <div>loading...</div>}
                 <div className="kami-list">
                 {!loading && !error && 
