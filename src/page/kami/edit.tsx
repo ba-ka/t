@@ -79,7 +79,7 @@ class KamiEdit extends React.Component<PropInterface, StateInterface> {
         const { loading, error } = this.state;
         return (
             <div className="kami-create-section">
-                {loading && <div>loading...</div>}
+                {loading && <div className="loading-section">loading...</div>}
                 {!loading && !error &&
                 <div className="editor">
                     <h3>kami editor</h3>

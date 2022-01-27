@@ -37,7 +37,7 @@ class Kami extends React.Component<PropInterface, StateInterface> {
                     <Link className="button-main" to="/kami/manage">manage</Link>
                 </ul>
                 }
-                {loading && <div>loading...</div>}
+                {loading && <div className="loading-section">loading...</div>}
                 <div className="kami-list">
                 {!loading && !error && 
                 list.row.map((x: any) => (

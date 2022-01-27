@@ -37,7 +37,7 @@ class KamiView extends React.Component<PropInterface, StateInterface> {
         const { loading, error } = this.state;
         return (
             <div className="kami-view-section">
-                {loading && <div>loading...</div>}
+                {loading && <div className="loading-section">loading...</div>}
                 {this.state.author === getUserId() &&
                     <Link className="button-main" to={`/kami/${this.state.kamiId}/edit`}>edit</Link>
                 }
