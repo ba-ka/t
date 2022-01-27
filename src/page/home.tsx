@@ -12,7 +12,7 @@ class Home extends React.Component<PropInterface, StateInterface> {
         return (
             <div>
                 <h3>home</h3>
-                <p>tanoshii is core client, tanoshii still in development but you can still use it. if you want to help us develop this client go here <a href="https://github.com/ba-ka/t" target="_blank">tanoshii</a> and <a href="https://github.com/ba-ka/c" target="_blank">core</a></p>
+                <p>tanoshii is core client, tanoshii still in development but you can still use it. if you want to help us develop this client go here <a href="https://github.com/ba-ka/t" target="_blank" rel="noreferrer">tanoshii</a> and <a href="https://github.com/ba-ka/c" target="_blank" rel="noreferrer">core</a></p>
             </div>
         )
     }
