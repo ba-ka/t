@@ -29,10 +29,10 @@ class Kami extends React.Component<PropInterface, StateInterface> {
         
         return (
             <div className="kami-list-section">
-                <h3>kami :)</h3>
+                <h3>kami</h3>
                 <Link className="button-main" to="/kami/create">create</Link>
                 <Link className="button-main" to="/kami/manage">manage</Link>
-                {loading && <div>Loading...</div>}
+                {loading && <div>loading...</div>}
                 <div className="kami-list">
                 {!loading && !error && 
                 list.row.map((x: any) => (

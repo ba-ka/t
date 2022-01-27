@@ -59,7 +59,7 @@ class KamiCreate extends React.Component<PropInterface, StateInterface> {
         return (
             <div className="kami-create-section">
                 <div className="editor">
-                    <h3>kami create :)</h3>
+                    <h3>kami create</h3>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             title:
