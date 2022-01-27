@@ -11,7 +11,8 @@ class Home extends React.Component<PropInterface, StateInterface> {
     render() {
         return (
             <div>
-                <h3>home :)</h3>
+                <h3>home</h3>
+                <p>tanoshii is core client, tanoshii still in development but you can still use it. if you want to help us develop this client go here <a href="https://github.com/ba-ka/t" target="_blank">tanoshii</a> and <a href="https://github.com/ba-ka/c" target="_blank">core</a></p>
             </div>
         )
     }
