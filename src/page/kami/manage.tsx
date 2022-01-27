@@ -33,8 +33,10 @@ class KamiManage extends React.Component<PropInterface, StateInterface> {
         return (
             <div className="kami-list-section">
                 <h3>kami manage</h3>
-                <Link className="button-main" to="/kami/create">create</Link>
-                <Link className="button-main" to="/kami">public kami</Link>
+                <ul className="mini-menu-section">
+                    <Link className="button-main" to="/kami/create">create</Link>
+                    <Link className="button-main" to="/kami">public kami</Link>
+                </ul>
                 {loading && <div>loading...</div>}
                 <div className="kami-list">
                 {!loading && !error && 
