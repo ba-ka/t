@@ -47,7 +47,7 @@ class KamiManage extends React.Component<PropInterface, StateInterface> {
                 list.row.map((x: any) => (
                     <Link to={`/kami/${x.id}`} key={x.id}>
                         <div className="title">{x.title} <span className="status">{x.status}</span></div>
-                        <div className="author">by {x.author.username}, created at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(x.created_at)}, updated at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(x.update_at)}</div>
+                        <div className="author">created at {new Date(x.create_at).toLocaleString("en-US", { timeZone: 'UTC' })}, updated at {new Date(x.update_at).toLocaleString("en-US", { timeZone: 'UTC' })}</div>
                         <p className="excerpt">{x.excerpt}</p>
                     </Link>
                 ))}

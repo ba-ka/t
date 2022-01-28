@@ -57,7 +57,7 @@ class KamiView extends React.Component<PropInterface, StateInterface> {
                 {!loading && !error && 
                 <div className="kami-list">
                 <h3>{this.state.title || 'no title'}</h3>
-                <div className="author">by {this.state.author.username}, created at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(this.state.create_at)}, updated at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(this.state.update_at)}</div>
+                <div className="author">by {this.state.author.username}, created at {new Date(this.state.create_at!).toLocaleString("en-US", { timeZone: 'UTC' })}, updated at {new Date(this.state.update_at!).toLocaleString("en-US", { timeZone: 'UTC' })}</div>
                 <ReactMarkdown>
                     {this.state.content || 'no content'}
                 </ReactMarkdown>
