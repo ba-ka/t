@@ -28,12 +28,16 @@ class KamiView extends React.Component<PropInterface, StateInterface> {
                     error: true
                 })
             } else {
+                console.log(res.author);
                 this.setState({
+                    ...this.state,
                     title: res.title,
                     excerpt: res.excerpt,
                     content: res.content,
                     status: res.status,
-                    author: res.author.id,
+                    author: res.author,
+                    create_at: res.create_at,
+                    update_at: res.update_at,
                     loading: false,
                     error: false
                 });
@@ -43,15 +47,17 @@ class KamiView extends React.Component<PropInterface, StateInterface> {
 
     render() {
         const { loading, error } = this.state;
+        
         return (
             <div className="kami-view-section">
                 {loading && <div className="loading-section">loading...</div>}
-                {this.state.author === getUserId() &&
+                {!loading && this.state.author.id === getUserId() &&
                     <Link className="button-main" to={`/kami/${this.state.kamiId}/edit`}>edit</Link>
                 }
                 {!loading && !error && 
                 <div className="kami-list">
                 <h3>{this.state.title || 'no title'}</h3>
+                <div className="author">by {this.state.author.username}, created at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(this.state.create_at)}, updated at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(this.state.update_at)}</div>
                 <ReactMarkdown>
                     {this.state.content || 'no content'}
                 </ReactMarkdown>

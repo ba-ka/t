@@ -11,5 +11,7 @@ export interface State {
     kamiId?: string;
     loading?: boolean;
     error?: boolean;
-    author?: string;
+    author?: any;
+    create_at?: number;
+    update_at?: number;
 }
