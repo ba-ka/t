@@ -21,15 +21,23 @@ class KamiView extends React.Component<PropInterface, StateInterface> {
         fetch(`${base_api}/kami?id=${this.state.kamiId}&auth=${authcode}`)
           .then((res) => res.json())
           .then((res) => {
-            this.setState({
-                title: res.title,
-                excerpt: res.excerpt,
-                content: res.content,
-                status: res.status,
-                author: res.author.id,
-                loading: false,
-                error: false
-            });
+            if (res.error) {
+                this.setState({
+                    ...this.state,
+                    loading: false,
+                    error: true
+                })
+            } else {
+                this.setState({
+                    title: res.title,
+                    excerpt: res.excerpt,
+                    content: res.content,
+                    status: res.status,
+                    author: res.author.id,
+                    loading: false,
+                    error: false
+                });
+            }
         })
     }
 
@@ -49,7 +57,7 @@ class KamiView extends React.Component<PropInterface, StateInterface> {
                 </ReactMarkdown>
                 </div>
                 }
-                {error && <div>Error message</div>}
+                {error && <div className="loading-section">kami not found</div>}
             </div>
         )
     }
