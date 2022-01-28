@@ -19,10 +19,14 @@ class KamiManage extends React.Component<PropInterface, StateInterface> {
         fetch(`${base_api}/kami?userid=${userid}&auth=${authcode}`)
           .then((res) => res.json())
           .then((res) => {
+            let isEmpty = false;
+            if (res.row && res.row.length === 0) {
+                isEmpty = true;
+            }
             this.setState({
                 list: res,
                 loading: false,
-                error: false
+                error: isEmpty
             });
         })
     }
@@ -42,12 +46,13 @@ class KamiManage extends React.Component<PropInterface, StateInterface> {
                 {!loading && !error && 
                 list.row.map((x: any) => (
                     <Link to={`/kami/${x.id}`} key={x.id}>
-                        <h4>{x.title}</h4>
-                        <p>{x.excerpt}</p>
+                        <div className="title">{x.title} <span className="status">{x.status}</span></div>
+                        <div className="author">by {x.author.username}, created at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(x.created_at)}, updated at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(x.update_at)}</div>
+                        <p className="excerpt">{x.excerpt}</p>
                     </Link>
                 ))}
                 </div>
-                {error && <div>Error message</div>}
+                {error && <div>you don't have kami, lets go create new one yo!</div>}
             </div>
         )
     }

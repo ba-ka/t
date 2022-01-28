@@ -47,7 +47,7 @@ class Kami extends React.Component<PropInterface, StateInterface> {
                 list.row.map((x: any) => (
                     <Link to={`/kami/${x.id}`} key={x.id}>
                         <div className="title">{x.title}</div>
-                        <div className="author">by {x.author.username}</div>
+                        <div className="author">by {x.author.username}, created at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(x.created_at)}, updated at {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(x.update_at)}</div>
                         <p className="excerpt">{x.excerpt}</p>
                     </Link>
                 ))}
