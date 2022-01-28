@@ -34,7 +34,7 @@ class Kami extends React.Component<PropInterface, StateInterface> {
                 {isAuth() &&
                 <ul className="mini-menu-section">
                     <Link className="button-main" to="/kami/create">create</Link>
-                    <Link className="button-main" to="/kami/manage">manage</Link>
+                    <Link className="button-main" to="/kami/manage">my kami</Link>
                 </ul>
                 }
                 {loading && <div className="loading-section">loading...</div>}
