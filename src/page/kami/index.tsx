@@ -17,10 +17,14 @@ class Kami extends React.Component<PropInterface, StateInterface> {
         fetch(`${base_api}/kami`)
           .then((res) => res.json())
           .then((res) => {
+            let isEmpty = false;
+            if (res.row && res.row.length === 0) {
+                isEmpty = true;
+            }
             this.setState({
                 list: res,
                 loading: false,
-                error: false
+                error: isEmpty
             });
         })
     }
@@ -48,7 +52,7 @@ class Kami extends React.Component<PropInterface, StateInterface> {
                     </Link>
                 ))}
                 </div>
-                {error && <div>Error message</div>}
+                {error && <div>bruh no kami lol</div>}
             </div>
         )
     }
