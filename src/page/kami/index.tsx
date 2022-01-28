@@ -42,8 +42,9 @@ class Kami extends React.Component<PropInterface, StateInterface> {
                 {!loading && !error && 
                 list.row.map((x: any) => (
                     <Link to={`/kami/${x.id}`} key={x.id}>
-                        <h4>{x.title}</h4>
-                        <p>{x.excerpt}</p>
+                        <div className="title">{x.title}</div>
+                        <div className="author">by {x.author.username}</div>
+                        <p className="excerpt">{x.excerpt}</p>
                     </Link>
                 ))}
                 </div>
